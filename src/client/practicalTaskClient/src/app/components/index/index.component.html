@@ -1,3 +1,18 @@
-<p>
-  index works!
-</p>
+<table class="table table-hover">
+  <thead>
+  <tr>
+      <td>Custoemr Name</td>
+      <td>Status</td>
+      <td colspan="2">Actions</td>
+  </tr>
+  </thead>
+
+  <tbody>
+      <tr *ngFor="let customer of customers">
+          <td>{{ customer.name }}</td>
+          <td>{{ customer.isActive }}</td>
+          <td><a [routerLink]="['/edit', customer.id]" class="btn btn-primary">Edit</a></td>
+          <td><button (click)="deactivatCustomer(customer.id)"  class="btn btn-danger">Deactivate </button></td>
+      </tr>
+  </tbody>
+</table>

@@ -38,9 +38,9 @@ namespace PracticalTask.WebApi.Controllers
         }
 
         [HttpPost]
-
         public IActionResult Post([FromBody]CustomerViewModel customerViewModel)
         {
+            customerViewModel.Id = Guid.NewGuid();
             if (!ModelState.IsValid)
             {
                 NotifyModelStateErrors();

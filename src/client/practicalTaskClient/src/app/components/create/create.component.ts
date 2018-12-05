@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CustomerService } from '../../services/customer.service';
 import { Customer } from '../../models/Customer.Model';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-create',
@@ -13,8 +14,9 @@ export class CreateComponent implements OnInit {
   angForm: FormGroup;
   customerModel: Customer;
 
-  constructor(private customerService: CustomerService, private fb: FormBuilder) {
+  constructor(private customerService: CustomerService, private router: Router, private fb: FormBuilder) {
     this.createForm();
+    this.customerModel = new Customer;
   }
 
   createForm() {
@@ -24,13 +26,20 @@ export class CreateComponent implements OnInit {
     });
   }
 
-  addNewCustomer() {
-    this.customerModel.IsActive = true;
-    this.customerModel.Name = "test name";
-
-
-    this.customerService.createCustomer(this.customerModel);
+  onSubmit() {
+   
+    this.addNewCustomer();
   }
+
+  addNewCustomer() {
+    this.customerService.createCustomer(this.customerModel).subscribe(res => {
+      debugger;
+      console.log(res);
+      this.router.navigate(['index']);
+    }
+    );
+  }
+
   ngOnInit() {
   }
 

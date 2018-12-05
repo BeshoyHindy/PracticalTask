@@ -1,6 +1,6 @@
  
 export class Customer {  
-    Id: string;  
-    Name: string;  
-    IsActive: boolean;  
+    id: string;  
+    name: string;  
+    isActive: boolean;  
 } 

@@ -1,17 +1,31 @@
-<div class="card">
-  <div class="card-body">
-    <form>
-      <div class="form-group">
-        <label class="col-md-4">Unit Name</label>
-        <input type="text" class="form-control" name="unit_name"/>
+<div class="jumbotron">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 ">
+        <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+          <div class="form-group">
+            <label for="customerName">Customer Name</label>
+            <input type="text" class="form-control" name="customerName" [(ngModel)]="customerModel.name" #customerName="ngModel"
+              [ngClass]="{ 'is-invalid': f.submitted && customerName.invalid }" required />
+            <div *ngIf="f.submitted && customerName.invalid" class="invalid-feedback">
+              <div *ngIf="customerName.errors.required">Customer Name is required</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="isActive">State</label>
+            <br />
+
+            <input type="checkbox" class="col-md-1 form-check-input" name="isActive" [(ngModel)]="customerModel.isActive"
+              #isActive="ngModel" [ngClass]="{ 'is-invalid': f.submitted && isActive.invalid }" required />
+          </div>
+          <br />
+          <br />
+
+          <div class="form-group">
+            <button class="btn btn-primary">Create</button>
+          </div>
+        </form>
       </div>
-      <div class="form-group">
-        <label class="col-md-4">Unit Price</label>
-        <input type="text" class="form-control" name="unit_price"/>
-        </div>
-        <div class="form-group">
-          <button type="submit" class="btn btn-primary">Create Unit</button>
-        </div>
-    </form>
+    </div>
   </div>
 </div>
