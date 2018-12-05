@@ -6,11 +6,8 @@
 
   <ItemGroup>
     <Compile Remove="Migrations\**" />
-    <Compile Remove="Migrations_\**" />
     <EmbeddedResource Remove="Migrations\**" />
-    <EmbeddedResource Remove="Migrations_\**" />
     <None Remove="Migrations\**" />
-    <None Remove="Migrations_\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -19,7 +16,6 @@
     <Compile Include="Migrations\EventStoreSQL\20181204174555_initEventStore.cs" />
     <Compile Include="Migrations\EventStoreSQL\20181204174555_initEventStore.Designer.cs" />
     <Compile Include="Migrations\PracticalTaskContextModelSnapshot.cs" />
-    <Compile Include="Migrations_\EventStoreSQL\EventStoreSQLContextModelSnapshot.cs" />
   </ItemGroup>
 
   <ItemGroup>
