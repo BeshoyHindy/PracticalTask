@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="8.1.0-preview2" />
+    <PackageReference Include="MediatR" Version="4.1.0" />
+    <PackageReference Include="System.ComponentModel" Version="4.3.0" />
+  </ItemGroup>
+
+</Project>
